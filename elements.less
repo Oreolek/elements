@@ -1,5 +1,12 @@
 /*! ---------------------------------------------------
-    LESS Elements 0.7
+    LESS Elements 0.8
+
+    Created by:
+    - Dmitry Fadeyev -> http://lesselements.com/
+
+    Edited by:
+    - Oreolek -> http://oreolek.ru
+    - frozeman -> frozeman.de
   ---------------------------------------------------
     A set of useful LESS mixins.
     See CREDITS file for full author list.
@@ -7,7 +14,7 @@
     More info at: http://lesselements.com
 -----------------------------------------------------*/
 
-#gradients{
+#gradient {
   .vertical(@color: #F5F5F5, @start: #EEE, @stop: #FFF, @posStart: 0, @posEnd: 1) {
     background: @color;
     background: -webkit-gradient(linear,
@@ -52,14 +59,14 @@
                      rgb(@start,@start,@start) 0%,
                      rgb(@stop,@stop,@stop) 100%);
   }
-  .none{
+  .none(){
     background:none;
     filter:none;
   }
 
 }
 
-#borders{
+#border {
   .bordered(@top-color: #EEE, @right-color: #EEE, @bottom-color: #EEE, @left-color: #EEE) {
     border-top: solid 1px @top-color;
     border-left: solid 1px @left-color;
@@ -72,7 +79,7 @@
     border-radius: @radius;
     -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
   }
-  
+
   .radius(@topright: 0, @bottomright: 0, @bottomleft: 0, @topleft: 0) {
     -webkit-border-top-right-radius: @topright;
     -webkit-border-bottom-right-radius: @bottomright;
@@ -90,7 +97,7 @@
   }
 }
 
-#shadows{
+#shadow {
   .drop(@x-axis: 0, @y-axis: 1px, @blur: 2px, @alpha: 0.1, @color: #000) {
     -webkit-box-shadow: @x-axis @y-axis @blur fadeout(@color, 100-(@alpha*100));
     -moz-box-shadow: @x-axis @y-axis @blur fadeout(@color, 100-(@alpha*100));
@@ -100,6 +107,11 @@
     -webkit-box-shadow: inset @horizontal @vertical @blur fadeout(@color, 100-(@alpha*100));
     -moz-box-shadow: inset @horizontal @vertical @blur fadeout(@color, 100-(@alpha*100));
     box-shadow: inset @horizontal @vertical @blur fadeout(@color, 100-(@alpha*100));
+  }
+  .both(@horizontalOut:0, @verticalOut:1px, @blurOut:2px, @alphaOut: 0.4, @colorOut: #000,@horizontalIn:0, @verticalIn:1px, @blurIn:2px, @alphaIn: 0.4, @colorIn: #000) {
+    -webkit-box-shadow: @horizontalOut @verticalOut @blurOut fadeout(@colorOut, 100-(@alphaOut*100)), inset @horizontalIn @verticalIn @blurIn fadeout(@colorIn, 100-(@alphaIn*100));
+    -moz-box-shadow: @horizontalOut @verticalOut @blurOut fadeout(@colorOut, 100-(@alphaOut*100)), inset @horizontalIn @verticalIn @blurIn fadeout(@colorIn, 100-(@alphaIn*100));
+    box-shadow: @horizontalOut @verticalOut @blurOut fadeout(@colorOut, 100-(@alphaOut*100)), inset @horizontalIn @verticalIn @blurIn fadeout(@colorIn, 100-(@alphaIn*100));
   }
   .box(@arguments) {
     -webkit-box-shadow: @arguments;
@@ -114,9 +126,14 @@
     -o-text-shadow: @arguments;
     -khtml-text-shadow: @arguments;
  }
+ .none() {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+ }
 }
 
-#transform{
+#transform {
   .rotation(@deg:5deg){
     -webkit-transform: rotate(@deg);
     -moz-transform: rotate(@deg);
@@ -152,7 +169,7 @@
   }
 }
 
-#transition{
+#transition {
   .all(@duration:0.2s, @ease:ease-out) {
     -webkit-transition: all @duration @ease;
     -moz-transition: all @duration @ease;
@@ -171,7 +188,7 @@
   }
 }
 
-#content{
+#content {
   .columns(@colwidth: 250px, @colcount: 0, @colgap: 50px, @columnRuleColor: #EEE, @columnRuleStyle: solid, @columnRuleWidth: 1px) {
     -moz-column-width: @colwidth;
     -moz-column-count: @colcount;

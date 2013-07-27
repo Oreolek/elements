@@ -1,17 +1,41 @@
 LESS Elements
 =============
 
-A set of useful mixins for LESS, the CSS pre-processor: <http://lesscss.org>
+LESS Elements is a set of useful mixins for the [LESS CSS pre-processor](http://lesscss.org) to help you cut down the size of your stylesheets.
 
-More information and usage examples over at: <http://lesselements.com>
+LESS is a fantastic tool that extends CSS and makes writing and maintaining large stylesheets easy. Even so, I found myself re-writing the same mixins again and again for different projects. LESS Elements is a collection of these common re-usable mixins.
 
-Examples page of all the mixins here: <http://lesselements.com/tests>
+For example, let’s look at a bit of CSS3 code that adds a couple of rounded corners (only the top left and top right edges):
 
-Oreolek has a good fork with the mixins organized under namespaces here: https://github.com/Oreolek/elements 
-I recommend going with that if you use other frameworks like Bootstrap to avoid clashes.
+    #some_div {
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-topright: 5px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
 
-TextMate bundle: <https://github.com/juanghurtado/less-elements.tmbundle>
+Browser specific code makes using CSS3 a chore. 6 lines of code just to add rounded corners. LESS mixins to the rescue. With LESS Elements the above can be compressed to just a 1 line:
 
-Ruby gem to work with Rails: <https://github.com/krasnoukhov/lesselements-rails> 
+    #some_div {
+      #border > .radius(5px, 0, 0, 5px);
+    }
 
-License: This work is dedicated to the public domain and is free for all uses, commercial or otherwise. No form of credit required.
+Looks just line shorthand CSS, with the values representing top right, bottom right, bottom left and top left corner radii in a clockwise order. To use LESS Elements, just download it (Github repo), put the “elements.less” file in your stylesheets folder and include it with 1 line of code at the top of your LESS file:
+
+    @import "elements";
+    
+Currently LESS Elements includes following namespaces:
+
+[Gradients](https://github.com/Oreolek/elements/wiki/Gradients)
+
+[Borders](https://github.com/Oreolek/elements/wiki/Borders)
+
+[Shadows](https://github.com/Oreolek/elements/wiki/Shadows)
+
+[Transformations](https://github.com/Oreolek/elements/wiki/Transformations)
+
+[Transitions](https://github.com/Oreolek/elements/wiki/Transitions)
+
+[Layout](https://github.com/Oreolek/elements/wiki/Layout)

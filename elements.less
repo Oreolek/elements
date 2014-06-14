@@ -142,14 +142,32 @@
   .rotation(@deg:5deg){
     -webkit-transform: rotate(@deg);
     -moz-transform: rotate(@deg);
-    transform: rotate(@deg);
     -ms-transform: rotate(@deg);
+    -o-transform: rotate(@deg);
+    transform: rotate(@deg);
   }
-  .scale(@ratio:1.5){
-    -webkit-transform:scale(@ratio);
-    -moz-transform:scale(@ratio);
-    transform:scale(@ratio);
-  }
+  .scaleY(@ratio:1.5){                                                                                                                                       
+    -webkit-transform:scaleY(@ratio);                                                                                                                        
+       -moz-transform:scaleY(@ratio);                                                                                                                           
+        -ms-transform:scaleY(@ratio);                                                                                                                            
+         -o-transform:scaleY(@ratio);                                                                                                                             
+            transform:scaleY(@ratio);                                                                                                                                
+  }                                                                                                                                                          
+  .scaleX(@ratio:1.5){                                                                                                                                       
+    -webkit-transform:scaleX(@ratio);                                                                                                                        
+    -moz-transform:scaleX(@ratio);                                                                                                                           
+    -ms-transform:scaleX(@ratio);                                                                                                                            
+    -o-transform:scaleX(@ratio);
+    transform:scaleX(@ratio);
+  } 
+  .scale(@ratio:1.5){                                                                                                                                        
+    -webkit-transform:scale(@ratio);                                                                                                                         
+    -moz-transform:scale(@ratio);                                                                                                                            
+    -ms-transform:scale(@ratio);                                                                                                                             
+    -o-transform:scale(@ratio);                                                                                                                              
+    transform:scale(@ratio);                                                                                                                                 
+  }                                                                                                                                                          
+
   .translate(@x:0, @y:0) {
     -moz-transform: translate(@x, @y);
     -webkit-transform: translate(@x, @y);

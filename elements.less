@@ -104,19 +104,23 @@
 
 #shadow {
   .drop(@x-axis: 0, @y-axis: 1px, @blur: 2px, @alpha: 0.1, @color: #000) {
-    -webkit-box-shadow: @x-axis @y-axis @blur fadeout(@color, 100-(@alpha*100));
-    -moz-box-shadow: @x-axis @y-axis @blur fadeout(@color, 100-(@alpha*100));
-    box-shadow: @x-axis @y-axis @blur fadeout(@color, 100-(@alpha*100));
+    @fade: fadeout(@color, 100 - ( @alpha*100 ));
+    -webkit-box-shadow: @x-axis @y-axis @blur @fade;
+       -moz-box-shadow: @x-axis @y-axis @blur @fade;
+            box-shadow: @x-axis @y-axis @blur @fade;
   }
   .inner(@horizontal:0, @vertical:1px, @blur:2px, @alpha: 0.4, @color: #000) {
-    -webkit-box-shadow: inset @horizontal @vertical @blur fadeout(@color, 100-(@alpha*100));
-    -moz-box-shadow: inset @horizontal @vertical @blur fadeout(@color, 100-(@alpha*100));
-    box-shadow: inset @horizontal @vertical @blur fadeout(@color, 100-(@alpha*100));
+    @fade: fadeout(@color, 100 - ( @alpha*100 ));
+    -webkit-box-shadow: inset @horizontal @vertical @blur @fade;
+       -moz-box-shadow: inset @horizontal @vertical @blur @fade;
+            box-shadow: inset @horizontal @vertical @blur @fade;
   }
   .both(@horizontalOut:0, @verticalOut:1px, @blurOut:2px, @alphaOut: 0.4, @colorOut: #000,@horizontalIn:0, @verticalIn:1px, @blurIn:2px, @alphaIn: 0.4, @colorIn: #000) {
-    -webkit-box-shadow: @horizontalOut @verticalOut @blurOut fadeout(@colorOut, 100-(@alphaOut*100)), inset @horizontalIn @verticalIn @blurIn fadeout(@colorIn, 100-(@alphaIn*100));
-    -moz-box-shadow: @horizontalOut @verticalOut @blurOut fadeout(@colorOut, 100-(@alphaOut*100)), inset @horizontalIn @verticalIn @blurIn fadeout(@colorIn, 100-(@alphaIn*100));
-    box-shadow: @horizontalOut @verticalOut @blurOut fadeout(@colorOut, 100-(@alphaOut*100)), inset @horizontalIn @verticalIn @blurIn fadeout(@colorIn, 100-(@alphaIn*100));
+    @fadeOut: fadeout(@colorOut, 100 - (@alphaOut*100));
+    @fadeIn: fadeout(@colorIn, 100 - (@alphaIn*100));
+    -webkit-box-shadow: @horizontalOut @verticalOut @blurOut @fadeOut, inset @horizontalIn @verticalIn @blurIn @fadeIn;
+       -moz-box-shadow: @horizontalOut @verticalOut @blurOut @fadeOut, inset @horizontalIn @verticalIn @blurIn @fadeIn;
+            box-shadow: @horizontalOut @verticalOut @blurOut @fadeOut, inset @horizontalIn @verticalIn @blurIn @fadeIn;
   }
   .box(@arguments) {
     -webkit-box-shadow: @arguments;
